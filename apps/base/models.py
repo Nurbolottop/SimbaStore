@@ -21,15 +21,6 @@ class Settings(models.Model):
         verbose_name="Логотип Компании",
         blank = True, null = True
     )
-
-    logo_complex = ResizedImageField(
-        force_format="WEBP", 
-        quality=100, 
-        upload_to='logo/',
-        verbose_name="Логотип Комплекса",
-        blank = True, null = True
-    )
-
     email = models.EmailField(
         max_length=255,
         verbose_name='Почта'

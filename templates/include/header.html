@@ -1,0 +1,59 @@
+{% load static %}
+<header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html" title="">
+            <img src="{{settings.logo.url}}" alt="" />
+          </a>
+        </div>
+        <div class="header-social">
+          <a href="#" title="" class="share-btn"
+            ><i class="flaticon-share"></i
+          ></a>
+          <div class="banner-social">
+            <h3>social media</h3>
+            <ul class="social-links">
+              <li>
+                <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#" title=""><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#" title=""><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#" title=""><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ul class="menu-other-links">
+          <li>
+            <a href="#" title="" class="search-btn">
+              <img src="{% static 'images/search.png' %}" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="#" title="" class="cart-btn">
+              <img src="{% static 'images/cart.png' %}" alt="" />
+              <span class="cart-number">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html" title=""
+              ><img src="{% static 'images/user.svg' %}" alt=""
+            /></a>
+          </li>
+        </ul>
+        <div class="menu">
+          <div class="menu-btn">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

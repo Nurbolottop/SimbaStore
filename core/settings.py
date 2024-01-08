@@ -126,9 +126,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Или любой другой путь, где вы хотите собирать статические файлы
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Если у вас есть дополнительные статические файлы для вашего приложения
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),  # Если у вас есть дополнительные статические файлы для вашего приложения
+# ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
