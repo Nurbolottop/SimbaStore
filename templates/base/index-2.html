@@ -208,19 +208,12 @@
         <div class="container">
           <div class="about-content-v2">
             <h2>
-              Style is the
-              <img src="{% static 'images/resource/c1.png' %}" alt="" /> perfection
-              <img src="{% static 'images/resource/c2.png' %}" alt="" /> point of view
-              <img src="{% static 'images/resource/c3.png' %}" alt="" />
+              {{lookbook.title}}
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus
-              leo sit amet lorem egestas iaculis. Donec nibh enim, pharetra vel
-              turpis non, vulputate luctus ex. Phasellus pharetra ut dolor ac
-              rutrum. Curabitur molestie nec mi in congue. Nam luctus ante quis
-              urna molestie, ut venenatis diam sagittis. Nam ligula velit,
+              {{lookbook.descriptions|safe}}
             </p>
-            <a href="about.html" title="" class="theme-btn">about more</a>
+            <a href="about.html" title="" class="theme-btn">Узнать больше</a>
           </div>
         </div>
       </section>
@@ -229,28 +222,15 @@
         <div class="container">
           <div class="lookbook-v2-slide">
             <div class="lookbook-v2 row">
+                {% for lookbook in lookbook.look_book.all %}
               <div class="col-lg-3 col-md-3 col-sm-3 col-3">
                 <div class="lookbook-inner wow fadeIn" data-wow-delay="200ms">
-                  <img src="{% static 'images/resource/book1.jpg' %}" alt="" />
+                  <img src="{{lookbook.image.url}}" alt="" />
                 </div>
               </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                <div class="lookbook-inner wow fadeIn" data-wow-delay="400ms">
-                  <img src="{% static 'images/resource/book2.jpg' %}" alt="" />
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                <div class="lookbook-inner wow fadeIn" data-wow-delay="600ms">
-                  <img src="{% static 'images/resource/book3.jpg' %}" alt="" />
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                <div class="lookbook-inner wow fadeIn" data-wow-delay="800ms">
-                  <img src="{% static 'images/resource/book4.jpg' %}" alt="" />
-                </div>
-              </div>
+              {% endfor %}
             </div>
-            <h1 class="pb-text wow slideInUp">lookbook</h1>
+            <h1 class="pb-text wow slideInUp">Образец</h1>
           </div>
         </div>
       </section>
@@ -263,7 +243,7 @@
           data-gap="10"
           data-duplicated="true"
         >
-          <h2>The best fashion store can deliver</h2>
+          <h2>Стиль и качество для вас в каждом штрихе</h2>
         </div>
       </section>
 
@@ -774,7 +754,7 @@
           data-gap="10"
           data-duplicated="true"
         >
-          <h2>The best fashion store can deliver</h2>
+          <h2>Стиль и качество для вас в каждом штрихе</h2>
         </div>
       </section>
 
@@ -1637,7 +1617,7 @@
           data-gap="10"
           data-duplicated="true"
         >
-          <h2>The best fashion store can deliver</h2>
+          <h2>Стиль и качество для вас в каждом штрихе</h2>
         </div>
       </section>
       <section class="cart-section-v2">
