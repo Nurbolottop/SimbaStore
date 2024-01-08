@@ -26,6 +26,14 @@ class NewsletterFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class ContactFilterAdmin(admin.ModelAdmin):
+    list_filter = ('name', )
+    list_display = ('name', 'message')
+    search_fields = ('name', 'message')
+
+################################################################################################################################################################################
+
 admin.site.register(models.Review,ReviewFilterAdmin)
 admin.site.register(models.Newsletter, NewsletterFilterAdmin)
 admin.site.register(models.Subscriber, SubscriberFilterAdmin)
+admin.site.register(models.Contact, ContactFilterAdmin)

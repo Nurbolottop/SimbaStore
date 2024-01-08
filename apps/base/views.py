@@ -6,6 +6,8 @@ from datetime import datetime
 from apps.base import models
 from apps.secondary.models import Slide,LookBook,Banner
 from apps.contacts.models import Review,Subscriber
+from apps.telegram_bot.views import get_text
+
 # Create your views here.
 def index(request):
 #Base----------------------------------------------------------
@@ -39,6 +41,13 @@ def index(request):
         if "newslater" in request.POST:
             email = request.POST.get('email') 
             subscribe = Subscriber.objects.create(email = email)
+            get_text(f"""
+                ✅Пользователь подписался на рассылку
+                         
+⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+                         
+Почта пользователя: {email}
+""")
             return redirect( 'index')
     reviews = Review.objects.all()
     return render(request,'base/index-2.html', locals())
@@ -66,7 +75,14 @@ def blog(request):
     if request.method == 'POST':
         if "newslater" in request.POST:
             email = request.POST.get('email') 
-            subscriber = Subscriber.objects.create(email = email)
+            subscribe = Subscriber.objects.create(email = email)
+            get_text(f"""
+                ✅Пользователь подписался на рассылку
+                         
+⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+                         
+Почта пользователя: {email}
+""")
             return redirect( 'index')
     return render(request,'secondary/single-article.html', locals())
 
@@ -99,5 +115,12 @@ def blog_detail(request,id):
         if "newslater" in request.POST:
             email = request.POST.get('email') 
             subscribe = Subscriber.objects.create(email = email)
+            get_text(f"""
+                ✅Пользователь подписался на рассылку
+                         
+⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+                         
+Почта пользователя: {email}
+""")
             return redirect( 'index')
     return render(request,'secondary/blog-single.html', locals())
