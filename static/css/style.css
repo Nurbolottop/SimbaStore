@@ -1296,6 +1296,11 @@ button {
   height: 30px;
   text-align: center;
 }
+.centeredBtn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .swiper-scrollbar .drag-inner {
   cursor: pointer;
   width: auto !important;
@@ -1528,7 +1533,6 @@ i[class^=flaticon-]:before, i[class*=" flaticon-"]:before {
   position: relative;
 }
 .overlay:before {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;

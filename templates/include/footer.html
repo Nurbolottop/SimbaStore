@@ -44,15 +44,16 @@
             class="widget widget-newsletter wow fadeInLeft"
             data-wow-delay="600ms"
           >
-            <h3 class="widget-title">NEWSLETTER</h3>
-            <p>Subscribe and get 10% discount on your first purchase.</p>
-            <form>
+            <h3 class="widget-title">НОВОСТНАЯ РАССЫЛКА</h3>
+            <p>Подпишитесь и получите скидку 10% на первую покупку.</p>
+            <form method = "POST">
+              {% csrf_token %}
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder="Ваша почта"
               />
-              <button type="submit" class="theme-btn">subscribe</button>
+              <button type="submit" name = "newslater" class="theme-btn">Подписаться</button>
             </form>
           </div>
           <!--widget-newsletter -->

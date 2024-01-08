@@ -84,6 +84,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+
 class CategoryAdd(models.Model):
     settings = models.ForeignKey(Category,related_name = "categorys", on_delete = models.CASCADE)
     number = models.CharField(
@@ -140,3 +141,38 @@ class Sale(models.Model):
         verbose_name_plural = "Cкидки"
 
     
+################################################################################################################################################################################
+
+class Blog(models.Model):
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Название"
+    )
+    descriptions = RichTextField(
+        verbose_name="Информационный текст",
+    )
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='blog/',
+        verbose_name="Фотография",
+        blank = False, null = False
+    )
+    image_banner = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='blog_banner/',
+        verbose_name="Фотография для баннера",
+        blank = False, null = False
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return f"{self.title} - {self.descriptions}"
+    
+    class Meta:
+        verbose_name = "Новость"
+        verbose_name_plural = "Новости"

@@ -1,5 +1,9 @@
 from django.urls import path  
 
-urlpatterns = [
+################################################################################################################################################################################
 
+from apps.contacts import views
+
+urlpatterns = [
+    path('reviews/', views.reviews,name="reviews")
 ]

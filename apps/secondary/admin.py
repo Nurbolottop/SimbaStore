@@ -28,5 +28,25 @@ class LookBookFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class BannerAddInline(admin.TabularInline):
+    model = models.BannerAdd
+    def get_max_num(self, request, obj=None, **kwargs):
+        if obj:
+            # Вы можете настроить количество доступных форм здесь
+            max_num = 6 - obj.look_book.count()
+            return max_num
+        return 6
+
+
+class BannerFilterAdmin(admin.ModelAdmin):
+    list_filter = ('image', )
+    list_display = ('image', )
+    search_fields = ('image', )
+    inlines = [BannerAddInline]
+
+################################################################################################################################################################################
+
 admin.site.register(models.Slide, SlideFilterAdmin)
 admin.site.register(models.LookBook, LookBookFilterAdmin)
+admin.site.register(models.Banner, BannerFilterAdmin)
+

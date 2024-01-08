@@ -44,8 +44,8 @@ class LookBook(models.Model):
         return f"{self.title} - {self.descriptions}"
     
     class Meta:
-        verbose_name = "Образцы"
-        verbose_name_plural = "Образцы"
+        verbose_name = "Образцы & О нас"
+        verbose_name_plural = "Образцы & О нас "
     
 class LookBookAdd(models.Model):
     settings = models.ForeignKey(LookBook, related_name='look_book', on_delete=models.CASCADE)
@@ -53,6 +53,32 @@ class LookBookAdd(models.Model):
         force_format="WEBP", 
         quality=100, 
         upload_to='slide/',
+        verbose_name="Фотография",
+        blank = False, null = False
+    )
+
+    class Meta:
+        verbose_name = "Добавить фото образцов"
+        verbose_name_plural = "Добавить фото образцов"
+
+class Banner(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='banner/',
+        verbose_name="Фотография",
+        blank = True, null = True
+    )
+    class Meta:
+        verbose_name = "Баннер & Наши Бренды"
+        verbose_name_plural = "Баннер & Наши Бренды "
+    
+class BannerAdd(models.Model):
+    settings = models.ForeignKey(Banner, related_name='banner_add', on_delete=models.CASCADE)
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='brand/',
         verbose_name="Фотография",
         blank = False, null = False
     )
