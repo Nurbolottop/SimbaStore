@@ -61,6 +61,8 @@ class LookBookAdd(models.Model):
         verbose_name = "Добавить фото образцов"
         verbose_name_plural = "Добавить фото образцов"
 
+################################################################################################################################################################################
+
 class Banner(models.Model):
     image = ResizedImageField(
         force_format="WEBP", 
@@ -86,3 +88,44 @@ class BannerAdd(models.Model):
     class Meta:
         verbose_name = "Добавить фото образцов"
         verbose_name_plural = "Добавить фото образцов"
+
+################################################################################################################################################################################
+class Faqs(models.Model):
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Вопрос"
+    )
+    message = RichTextField(
+        verbose_name="Информационный текст",
+    )
+    
+    def __str__(self):
+        return f"{self.title} - {self.message}"
+    
+    class Meta:
+        verbose_name = "Часто задаваемые вопросы"
+        verbose_name_plural = "Часто задаваемые вопросы "
+
+class Team(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='team/',
+        verbose_name="Фотография",
+        blank = False, null = False
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Имя"
+    )
+    work = models.CharField(
+        max_length = 255,
+        verbose_name = "Должность"
+    )
+
+    def __str__(self):
+        return f"{self.title} - {self.work}"
+    
+    class Meta:
+        verbose_name = "Наша комманда"
+        verbose_name_plural = "Наша комманда "

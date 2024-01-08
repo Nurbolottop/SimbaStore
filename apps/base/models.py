@@ -176,3 +176,31 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+
+################################################################################################################################################################################
+
+class Devis(models.Model):
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Девиз"
+    )
+    def __str__(self):
+        return f"{self.title} "
+    
+    class Meta:
+        verbose_name = "Наш девиз"
+        verbose_name_plural = "Наш девиз"
+
+class DevizAdd(models.Model):
+    settings = models.ForeignKey(Devis, related_name='deviiz', on_delete=models.CASCADE)
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='devis/',
+        verbose_name="Фотография",
+        blank = False, null = False
+    )
+
+    class Meta:
+        verbose_name = "Добавить фото для пункта Девиз"
+        verbose_name_plural = "Добавить фото для пункта Девиз"

@@ -46,7 +46,23 @@ class BannerFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class FaqsFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', 'message')
+    search_fields = ('title', 'message')
+
+################################################################################################################################################################################
+
+class TeamFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', 'work')
+    search_fields = ('title', 'work')
+
+################################################################################################################################################################################
+
 admin.site.register(models.Slide, SlideFilterAdmin)
 admin.site.register(models.LookBook, LookBookFilterAdmin)
 admin.site.register(models.Banner, BannerFilterAdmin)
+admin.site.register(models.Faqs, FaqsFilterAdmin)
+admin.site.register(models.Team, TeamFilterAdmin)
 

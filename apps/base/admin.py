@@ -50,10 +50,28 @@ class BlogFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class DevizAddInline(admin.TabularInline):
+    model = models.DevizAdd
+    def get_max_num(self, request, obj=None, **kwargs):
+        if obj:
+            max_num = 3 - obj.deviiz.count()
+            return max_num
+        return 3
+
+
+class DevizFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', )
+    search_fields = ('title', )
+    inlines = [DevizAddInline]
+
+################################################################################################################################################################################
+
 admin.site.register(models.Settings, SettingsFilterAdmin)
 admin.site.register(models.Category, CategoryFilterAdmin)
 admin.site.register(models.Sale, SaleFilterAdmin)
 admin.site.register(models.Blog, BlogFilterAdmin)
+admin.site.register(models.Devis, DevizFilterAdmin)
 
 ################################################################################################################################################################################
 

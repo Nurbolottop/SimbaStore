@@ -23,18 +23,27 @@
         <div class="banner-social">
           <h3>social media</h3>
           <ul class="social-links">
-            <li>
-              <a href="#" title=""><i class="fab fa-facebook-f"></i></a>
+            {% if settings.facebook %}
+              <li>
+                <a href="{{settings.facebook}}" title=""><i class="fab fa-facebook-f"></i></a>
             </li>
-            <li>
-              <a href="#" title=""><i class="fab fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#" title=""><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#" title=""><i class="fab fa-youtube"></i></a>
-            </li>
+            {% endif %}
+            {% if settings.instagram %}
+              <li>
+                <a href="{{settings.instagram}}" title=""><i class="fab fa-instagram"></i></a>
+              </li>
+            {% endif %}
+            {% if settings.whatsapp %}
+              <li>
+                <a href="{{settings.whatsapp}}" title=""><i class="fab fa-whatsapp"></i></a>
+              </li>
+            {% endif %}
+            {% if settings.youtube %}
+              <li>
+                <a href="{{settings.youtube}}" title=""><i class="fab fa-youtube"></i></a>
+              </li>
+            {% endif %}
+            
           </ul>
         </div>
       </div>
@@ -43,17 +52,6 @@
           <a href="#" title="" class="search-btn">
             <img src="{% static 'images/search.png' %}" alt="" />
           </a>
-        </li>
-        <li>
-          <a href="#" title="" class="cart-btn">
-            <img src="{% static 'images/cart.png' %}" alt="" />
-            <span class="cart-number">5</span>
-          </a>
-        </li>
-        <li>
-          <a href="login.html" title=""
-            ><img src="{% static 'images/user.svg' %}" alt=""
-          /></a>
         </li>
       </ul>
       <div class="menu">
@@ -396,13 +394,13 @@
       <a href="{% url 'blog' %}" title="">Новости</a>
     </li>
     <li>
-      <a href="contact.html" title="">Наши контакты</a>
+      <a href="{% url 'contact' %}" title="">Наши контакты</a>
     </li>
     <li>
       <a href="#" title="">Страницы</a>
       <ul>
-        <li><a href="about.html" title="">О нас</a></li>
-        <li><a href="faqs.html" title="">Часто задаваемые вопросы</a></li>
+        <li><a href="{% url 'about' %}" title="">О нас</a></li>
+        <li><a href="{% url 'faqs' %}" title="">Часто задаваемые вопросы</a></li>
       </ul>
     </li>
   </ul>

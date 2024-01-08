@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from datetime import datetime
+from django.core.mail import send_mail
 
 ################################################################################################################################################################################
 
 from apps.contacts import models
-from apps.base.models import Settings,Category
+from apps.base.models import Settings,Category,Sale
 from apps.telegram_bot.views import get_text
 # Create your views here.
 def reviews(request):
@@ -47,12 +48,11 @@ def reviews(request):
 
 def contact(request):
 #Base----------------------------------------------------------
-    settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
-    sale = models.Sale.objects.all()
-    blog = models.Blog.objects.all().order_by("?")
+    settings = Settings.objects.latest("id")
+    category = Category.objects.latest("id")
+    sale = Sale.objects.all()
     #################################################
-    sales = models.Sale.objects.first()
+    sales = Sale.objects.first()
 
     if sales and sales.end_date:
         end_time = sales.end_date
@@ -68,4 +68,23 @@ def contact(request):
             email = request.POST.get('email') 
             subscriber = models.Subscriber.objects.create(email = email)
             return redirect( 'index')
+        if "contaact" in request.POST:
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            message = request.POST.get('message')
+            phone = request.POST.get('phone')
+            contacts =models.Contact.objects.create(name = name,email = email,message = message,phone=phone)
+            send_mail(
+                f'{message}',
+                f'Добрый день {name}, спасибо за обратную связь, мы скоро свами свяжемся.Ваше обращение: {message}. Ваша  почта: {email}',
+                "noreply@somehost.local",
+                [email])
+            get_text(f""" ✅Оставлено Заявка на сообщение
+                 
+                 
+ФИО: {contacts.name}
+Почта: {contacts.email}
+Сообщение: {contacts.message}
+Телефонный номер: {contacts.phone}
+""")
     return render(request,'base/contact.html', locals())
