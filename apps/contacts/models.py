@@ -16,8 +16,8 @@ class Review(models.Model):
         return f"{self.title} - {self.message}"
     
     class Meta:
-        verbose_name = "Отзыв"
-        verbose_name_plural = "Отзывы"
+        verbose_name = "4) Отзыв"
+        verbose_name_plural = "4) Отзывы"
 
 ################################################################################################################################################################################
 
@@ -30,8 +30,8 @@ class Subscriber(models.Model):
         return f"{self.email} - {self.subscribed_at}"
     
     class Meta:
-        verbose_name = "Пользователи для рассылки"
-        verbose_name_plural = "Пользователи для рассылки"
+        verbose_name = "2) Пользователи для рассылки"
+        verbose_name_plural = "2) Пользователи для рассылки"
 
 class Newsletter(models.Model):
     subject = models.CharField(max_length=200, verbose_name="Заголовок")
@@ -64,8 +64,8 @@ class Newsletter(models.Model):
             email.send(fail_silently=False)
 
     class Meta:
-        verbose_name = "Отправить рассылку"
-        verbose_name_plural = "Отправить рассылку"
+        verbose_name = "1) Отправить рассылку"
+        verbose_name_plural = "1) Отправить рассылку"
 
 ################################################################################################################################################################################
 
@@ -89,43 +89,7 @@ class Contact(models.Model):
         return f"{self.name}"
     
     class Meta:
-        verbose_name = "Запросы на связи"
-        verbose_name_plural = "Запросы на связь"
+        verbose_name = "3) Запросы на связи"
+        verbose_name_plural = "3) Запросы на связь"
 
 ################################################################################################################################################################################
-
-class TelegramUser(models.Model):
-    id_user = models.CharField(
-        max_length=100,
-        verbose_name="ID пользователя telegram"
-    )
-    username = models.CharField(
-        max_length=255,
-        verbose_name="Имя пользователя",
-        blank=True, null=True
-    )
-    first_name = models.CharField(
-        max_length=255,
-        verbose_name="Имя",
-        blank=True, null=True
-    )
-    last_name = models.CharField(
-        max_length=255,
-        verbose_name="Фамилия",
-        blank=True, null=True
-    )
-    chat_id = models.CharField(
-        max_length=100,
-        verbose_name="Чат ID"
-    )
-    created = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Дата регистрации"
-    )
-
-    def __str__(self):
-        return str(self.username)
-    
-    class Meta:
-        verbose_name = "Пользователь телеграм"
-        verbose_name_plural = "Пользователи телеграма"

@@ -4,15 +4,16 @@ from datetime import datetime
 ################################################################################################################################################################################
 
 from apps.base import models
-from apps.secondary.models import Faqs,Team
 from apps.contacts.models import Review,Subscriber
+from apps.secondary.models import Faqs,Team
+from apps.products.models import Category
 from apps.telegram_bot.views import get_text
 
 # Create your views here.
 def about(request):
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
+    category = Category.objects.latest("id")
     deviz = models.Devis.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.all().order_by("?")[:3]
@@ -56,7 +57,7 @@ def about(request):
 def faqs(request):
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
+    category = Category.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.all().order_by("?")[:3]
 

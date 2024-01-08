@@ -27,8 +27,8 @@ class Slide(models.Model):
         return f"{self.subtitle} - {self.title}"
     
     class Meta:
-        verbose_name = "Слайд"
-        verbose_name_plural = "Слайды"
+        verbose_name = "1) Слайд"
+        verbose_name_plural = "1) Слайды"
 
 ################################################################################################################################################################################
 
@@ -44,8 +44,8 @@ class LookBook(models.Model):
         return f"{self.title} - {self.descriptions}"
     
     class Meta:
-        verbose_name = "Образцы & О нас"
-        verbose_name_plural = "Образцы & О нас "
+        verbose_name = "2) Образцы & О нас"
+        verbose_name_plural = "2) Образцы & О нас "
     
 class LookBookAdd(models.Model):
     settings = models.ForeignKey(LookBook, related_name='look_book', on_delete=models.CASCADE)
@@ -72,8 +72,8 @@ class Banner(models.Model):
         blank = True, null = True
     )
     class Meta:
-        verbose_name = "Баннер & Наши Бренды"
-        verbose_name_plural = "Баннер & Наши Бренды "
+        verbose_name = "3) Баннер & Наши Бренды"
+        verbose_name_plural = "3)Баннер & Наши Бренды "
     
 class BannerAdd(models.Model):
     settings = models.ForeignKey(Banner, related_name='banner_add', on_delete=models.CASCADE)
@@ -86,8 +86,8 @@ class BannerAdd(models.Model):
     )
 
     class Meta:
-        verbose_name = "Добавить фото образцов"
-        verbose_name_plural = "Добавить фото образцов"
+        verbose_name = " Добавить фото образцов"
+        verbose_name_plural = " Добавить фото образцов"
 
 ################################################################################################################################################################################
 class Faqs(models.Model):
@@ -103,8 +103,8 @@ class Faqs(models.Model):
         return f"{self.title} - {self.message}"
     
     class Meta:
-        verbose_name = "Часто задаваемые вопросы"
-        verbose_name_plural = "Часто задаваемые вопросы "
+        verbose_name = "5) Часто задаваемые вопросы"
+        verbose_name_plural = "5) Часто задаваемые вопросы "
 
 class Team(models.Model):
     image = ResizedImageField(
@@ -127,5 +127,5 @@ class Team(models.Model):
         return f"{self.title} - {self.work}"
     
     class Meta:
-        verbose_name = "Наша комманда"
-        verbose_name_plural = "Наша комманда "
+        verbose_name = "4) Наша комманда"
+        verbose_name_plural = "4) Наша комманда "

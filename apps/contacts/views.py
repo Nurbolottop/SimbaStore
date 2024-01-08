@@ -5,7 +5,9 @@ from django.core.mail import send_mail
 ################################################################################################################################################################################
 
 from apps.contacts import models
-from apps.base.models import Settings,Category,Sale
+from apps.base.models import Settings,Sale
+from apps.products.models import Category
+
 from apps.telegram_bot.views import get_text
 # Create your views here.
 def reviews(request):

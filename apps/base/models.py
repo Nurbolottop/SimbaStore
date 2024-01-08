@@ -53,8 +53,8 @@ class Settings(models.Model):
         return self.title
     
     class Meta:
-            verbose_name = "Основная настройка"
-            verbose_name_plural = "Основные настройки"
+            verbose_name = "1) Основная настройка"
+            verbose_name_plural = "1) Основные настройки"
 
 
 class SettingsPhone(models.Model):
@@ -67,45 +67,6 @@ class SettingsPhone(models.Model):
         unique_together = ('settings', 'phone')
         verbose_name = "Дополнительный телефонный номер"
         verbose_name_plural = "Дополнительный телефонный номер"
-
-################################################################################################################################################################################
-
-class Category(models.Model):
-    title = models.CharField(
-        max_length = 255,
-        verbose_name = "Заголовок"
-    )
-    descriptions = RichTextField(
-        verbose_name="Информационный текст",
-    )
-    def __str__(self):
-        return f"{self.title} - {self.descriptions}"
-    
-    class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
-
-class CategoryAdd(models.Model):
-    settings = models.ForeignKey(Category,related_name = "categorys", on_delete = models.CASCADE)
-    number = models.CharField(
-        max_length = 255,
-        default = '6',
-        verbose_name = "Нумерация"
-    )
-    title = models.CharField(
-        max_length = 255,
-        verbose_name  = "Название категории"
-    )
-    image = ResizedImageField(
-        force_format="WEBP", 
-        quality=100, 
-        upload_to='category/',
-        verbose_name="Фотография",
-        blank = False, null = False
-    )
-    class Meta:
-        verbose_name = "Добавить категории"
-        verbose_name_plural = "Добавить категории"
 
 ################################################################################################################################################################################
 
@@ -137,8 +98,8 @@ class Sale(models.Model):
         return f"{self.title} - {self.descriptions}"
     
     class Meta:
-        verbose_name = "Cкидка"
-        verbose_name_plural = "Cкидки"
+        verbose_name = "3) Cкидка"
+        verbose_name_plural = "3) Cкидки"
 
     
 ################################################################################################################################################################################
@@ -174,8 +135,8 @@ class Blog(models.Model):
         return f"{self.title} - {self.descriptions}"
     
     class Meta:
-        verbose_name = "Новость"
-        verbose_name_plural = "Новости"
+        verbose_name = "4) Новость"
+        verbose_name_plural = "4) Новости"
 
 ################################################################################################################################################################################
 
@@ -188,8 +149,8 @@ class Devis(models.Model):
         return f"{self.title} "
     
     class Meta:
-        verbose_name = "Наш девиз"
-        verbose_name_plural = "Наш девиз"
+        verbose_name = "2) Наш девиз"
+        verbose_name_plural = "2) Наш девиз"
 
 class DevizAdd(models.Model):
     settings = models.ForeignKey(Devis, related_name='deviiz', on_delete=models.CASCADE)

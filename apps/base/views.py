@@ -6,13 +6,14 @@ from datetime import datetime
 from apps.base import models
 from apps.secondary.models import Slide,LookBook,Banner
 from apps.contacts.models import Review,Subscriber
+from apps.products.models import Category
 from apps.telegram_bot.views import get_text
 
 # Create your views here.
 def index(request):
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
+    category = Category.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.all().order_by("?")[:3]
 
@@ -57,7 +58,7 @@ def index(request):
 def blog(request):
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
+    category = Category.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.all().order_by("?")
     #################################################
@@ -89,7 +90,7 @@ def blog(request):
 def blog_detail(request,id):
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
-    category = models.Category.objects.latest("id")
+    category = Category.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.get(id=id)
     blog_all = models.Blog.objects.all().order_by("?")
