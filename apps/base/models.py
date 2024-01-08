@@ -107,3 +107,36 @@ class CategoryAdd(models.Model):
         verbose_name_plural = "Добавить категории"
 
 ################################################################################################################################################################################
+
+class Sale(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='sale/',
+        verbose_name="Фотография",
+        blank = False, null = False
+    )
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Название"
+    )
+    descriptions = RichTextField(
+        verbose_name="Информационный текст",
+    )
+    start_date = models.DateField(
+        verbose_name="Начало",
+        blank = True,null = True
+    )
+    end_date = models.DateField(
+        verbose_name="Окончание",
+        blank = True,null = True
+
+    )
+    def __str__(self):
+        return f"{self.title} - {self.descriptions}"
+    
+    class Meta:
+        verbose_name = "Cкидка"
+        verbose_name_plural = "Cкидки"
+
+    

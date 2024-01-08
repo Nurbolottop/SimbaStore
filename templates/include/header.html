@@ -443,3 +443,65 @@
     </ul>
 </div>
 </div>
+
+{% if sale %}
+    {% for sale in sale%}
+        <div class="popup coming-soon-popup">
+            <a href="#" title="" class="close-popup">
+            <img src="{% static 'images/close2.png' %}" alt="" />
+            </a>
+            <div class="row">
+            <div class="col-lg-6 image-popup">
+                <img src="{{sale.image.url}}" alt="" />
+            </div>
+            <div class="col-lg-6 popup-content">
+                <div class="inner-column">
+                <div class="popup-title text-center">
+                    <h2>{{sale.title}}</h2>
+                    <p>{{sale.descriptions|safe}}</p>
+                </div>
+                <div class="time-counter" id="clockdiv-{{ forloop.counter }}"></div>
+                <div class="full-btn">
+                    <a href="shop-category.html" title="" class="theme-btn v2"
+                    >Купить сейчас</a
+                    >
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const countdownTimer = document.getElementById('clockdiv-{{ forloop.counter }}');
+                const endTime = new Date('{{ sale.end_date|date:"Y-m-d" }}T23:59:59').getTime();
+  
+                const updateTimer = () => {
+                    const now = new Date().getTime();
+                    const distance = endTime - now;
+  
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    countdownTimer.innerHTML = `
+                        <ul>
+                            <li><h3>${days}</h3><span>Дней</span></li>
+                            <li><h3>${hours}</h3><span>Часов</span></li>
+                            <li><h3>${minutes}</h3><span>Минут</span></li>
+                            <li><h3>${seconds}</h3><span>Секунд</span></li>
+                        </ul>
+                   `;
+  
+                    if (distance < 0) {
+                        clearInterval(timerInterval);
+                        countdownTimer.innerHTML = "Распродажа окончена";
+                    }
+                };
+  
+                updateTimer(); // Запускаем сразу, чтобы инициализировать отображение
+                const timerInterval = setInterval(updateTimer, 1000);
+            });
+        </script>
+    {% endfor %}
+{% endif %}
