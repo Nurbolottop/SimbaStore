@@ -12,16 +12,12 @@ class SlideFilterAdmin(admin.ModelAdmin):
 
 class LookBookAddInline(admin.TabularInline):
     model = models.LookBookAdd
-    fields = ('image',) # Add other fields if necessary
-
-    def get_formset(self, request, obj=None, **kwargs):
-        formset = super().get_formset(request, obj, **kwargs)
+    def get_max_num(self, request, obj=None, **kwargs):
         if obj:
-            # Count how many images are already associated
-            count = obj.look_book.count()
-            # Adjust 'extra' to limit the total number of images to 4
-            formset.extra = max(0, 4 - count)
-        return formset
+            # Вы можете настроить количество доступных форм здесь
+            max_num = 4 - obj.look_book.count()
+            return max_num
+        return 4
 
 
 class LookBookFilterAdmin(admin.ModelAdmin):

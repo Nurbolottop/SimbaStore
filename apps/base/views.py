@@ -9,6 +9,7 @@ from apps.secondary.models import Slide,LookBook
 def index(request):
 #Base
     settings = models.Settings.objects.latest("id")
+    category = models.Category.objects.latest("id")
 #Secondary
     lookbook = LookBook.objects.latest("id")
     slide = Slide.objects.all()

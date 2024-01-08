@@ -250,11 +250,9 @@
       <section class="category-section-v2">
         <div class="container-full">
           <div class="sec-title space-v2 wow fadeInUp">
-            <h2>GLANCE Category</h2>
+            <h2>{{category.title}}</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus
-              leo sit amet lorem egestas iaculis. Donec nibh enim, pharetra vel
-              turpis
+              {{category.descriptions|safe}}
             </p>
           </div>
           <div class="categories-v2">
@@ -263,64 +261,35 @@
                 <div class="swiper-slide">
                   <div class="category-slide">
                     <div class="row">
+                      {% for category in category.categorys.all%}
+                      {% if category.number == "6" %}
                       <div class="col-lg-6 col-md-6">
                         <div class="category-v2">
                           <div class="category-v2-img">
-                            <img src="{% static 'images/resource/gallery1.jpg' %}" alt="" />
+                            <img src="{{category.image.url}}" alt="" />
                           </div>
                           <h3>
-                            <a href="shop-single.html" title="">Men Clothing</a>
+                            <a href="shop-single.html" title="">{{category.title}}</a>
                           </h3>
                         </div>
                       </div>
-                      <div class="col-lg-6 col-md-6">
-                        <div class="category-v2">
-                          <div class="category-v2-img">
-                            <img src="{% static 'images/resource/gallery2.jpg' %}" alt="" />
-                          </div>
-                          <h3>
-                            <a href="shop-single.html" title=""
-                              >Men's Grooming</a
-                            >
-                          </h3>
-                        </div>
-                      </div>
+                      {% else%}
                       <div class="col-lg-4 col-md-4">
                         <div class="category-v2">
                           <div class="category-v2-img">
-                            <img src="{% static 'images/resource/gallery3.jpg' %}" alt="" />
+                            <img src="{{category.image.url}}" alt="" />
                           </div>
                           <h3>
-                            <a href="shop-single.html" title=""
-                              >Innerwear & Loungewear</a
-                            >
+                            <a href="shop-single.html" title="">{{category.title}}</a>
                           </h3>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-md-4">
-                        <div class="category-v2">
-                          <div class="category-v2-img">
-                            <img src="{% static 'images/resource/gallery4.jpg' %}" alt="" />
-                          </div>
-                          <h3>
-                            <a href="shop-single.html" title="">Accessories</a>
-                          </h3>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4">
-                        <div class="category-v2">
-                          <div class="category-v2-img">
-                            <img src="{% static 'images/resource/gallery5.jpg' %}" alt="" />
-                          </div>
-                          <h3>
-                            <a href="shop-single.html" title="">Sunglasses</a>
-                          </h3>
-                        </div>
-                      </div>
+                      {% endif %}
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
-                <div class="swiper-slide">
+                {% comment %} <div class="swiper-slide">
                   <div class="category-slide">
                     <div class="row">
                       <div class="col-lg-6 col-md-6">
@@ -619,8 +588,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> 
+              </div>{% endcomment %}
               <!-- scrollbar -->
               <div class="swiper-scrollbar v3">
                 <span class="swiper-scrollbar-drag"
