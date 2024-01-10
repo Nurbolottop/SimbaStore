@@ -5899,6 +5899,207 @@ footer .container-fluid {
   padding: 40px;
   height: 100vh;
 }
+/* hehehe */
+.lg-popup2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: calc(100% - 180px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.lg-popup2 .lg-image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+}
+.lg-popup2 .lg-image .close-pop {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.lg-popup2 .lg-image .close-pop img {
+  max-width: 25px;
+}
+.lg-popup2 .lg-content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  max-width: 50%;
+}
+.lg-popup2 .lg-content .lg-content-inner {
+  max-width: 465px;
+  margin: 0 auto;
+}
+.lg-popup2 .lg-content .lg-content-inner .close-pop {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+.lg-popup2 .lg-content .lg-content-inner h3 {
+  color: #000000;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.lg-popup2 .lg-content .lg-content-inner p {
+  color: #3E3E3E;
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 41px;
+}
+.lg-popup2 .lg-content .lg-content-inner .lg-social {
+  max-width: 398px;
+  margin-bottom: 33px;
+}
+.lg-popup2 .lg-content .lg-content-inner .lg-social li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #E3E3E3;
+  margin-bottom: 15px;
+  padding: 10px 0 8px;
+}
+.lg-popup2 .lg-content .lg-content-inner .lg-social li:last-child {
+  margin-bottom: 0;
+}
+.lg-popup2 .lg-content .lg-content-inner .lg-social li a {
+  display: inline-block;
+  color: #000000;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.lg-popup2 .lg-content .lg-content-inner .lg-social li a span {
+  display: inline-block;
+  width: 25px;
+  position: relative;
+  top: -3px;
+  text-align: left;
+}
+.lg-popup2 .lg-content .lg-content-inner .or {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.lg-popup2 .lg-content .lg-content-inner .or > span {
+  display: inline-block;
+  color: #3E3E3E;
+  font-size: 14px;
+  text-transform: capitalize;
+  position: relative;
+}
+.lg-popup2 .lg-content .lg-content-inner .or > span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 156px;
+  height: 1px;
+  background: #efefef;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-right: 21px;
+}
+.lg-popup2 .lg-content .lg-content-inner .or > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 156px;
+  height: 1px;
+  background: #efefef;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: 20px;
+}
+.lg-popup2 .lg-content .lg-content-inner .input-field {
+  margin-bottom: 20px;
+}
+.lg-popup2 .lg-content .lg-content-inner .input-field:last-child {
+  margin-bottom: 0;
+}
+.lg-popup2 .lg-content .lg-content-inner .input-field label {
+  display: block;
+  color: #000000;
+  font-size: 13px;
+  text-transform: capitalize;
+  padding: 0 11px;
+}
+.lg-popup2 .lg-content .lg-content-inner .input-field input {
+  width: 100%;
+  border: 1px solid #E3E3E3;
+  height: 60px;
+  font-size: 14px;
+  color: #000000;
+  padding: 0 20px;
+}
+.lg-popup2 .lg-content .lg-content-inner .agree-terms {
+  margin: 0;
+}
+.lg-popup2 .lg-content .lg-content-inner .remember-password {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+.lg-popup2 .lg-content .lg-content-inner .remember-password .recovery-password {
+  margin-left: auto;
+}
+.lg-popup2 .lg-content .lg-content-inner .remember-password .recovery-password a {
+  display: inline-block;
+  color: #B88669;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.lg-popup2 .lg-content .lg-content-inner .theme-btn {
+  margin-top: 17px;
+}
+.lg-popup2 .lg-content .btm {
+  margin-top: 17px;
+}
+.lg-popup2 .lg-content .btm > span {
+  display: inline-block;
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.lg-popup2 .lg-content .btm > span a {
+  display: inline-block;
+  color: #C98663;
+  margin-left: 9px;
+}
+
+.lg-page {
+  background: #EEE1DA;
+  padding: 40px;
+  height: 100vh;
+}
+/* end hehehe */
 
 /*==============================================
 19. LOOKBOOK
