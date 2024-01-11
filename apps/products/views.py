@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from apps.base import models
 from apps.contacts.models import Review,Subscriber
 from apps.secondary.models import Team
-from apps.products.models import Category,Product,Brand,ColorAd,SizeAd
+from apps.products.models import Category,Product,Brand,ColorAd,SizeAd,Price,Collection
 from apps.telegram_bot.views import get_text
 
 # Create your views here.
@@ -33,24 +33,32 @@ def shop(request):
 #Secondary----------------------------------------------------------
     
     # Получение параметров фильтрации из запроса
-    brand_filter = request.GET.get('brand')
-    color_filter = request.GET.get('color')
-    size_filter = request.GET.get('size')
-    price_filter = request.GET.get('price')
+    brand_filter = request.GET.get('brands')
+    color_filter = request.GET.get('colors')
+    size_filter = request.GET.get('sizses')
+    price_filter = request.GET.get('prices')
     sort_by = request.GET.get('sort_by', 'featured')
-
+    collection_filter = request.GET.get('collection')
     products = Product.objects.all()
 
     # Применение фильтров
     if brand_filter:
         products = products.filter(brand__title=brand_filter)
     if color_filter:
-        products = products.filter(colorad__title=color_filter)
+        # Используйте related_name `product_color_ad` для фильтрации по цвету
+        products = products.filter(product_color_ad__settings__title=color_filter)
     if size_filter:
         products = products.filter(sizead__al=size_filter)
     if price_filter:
-        products = products.filter(price__lte=price_filter)
-
+        try:
+            # Преобразуем строку в число для фильтрации
+            max_price = float(price_filter.replace(',', '.'))
+            products = products.filter(price__lte=max_price)
+        except ValueError:
+            # В случае ошибки преобразования строки в число, игнорируем фильтр цены
+            pass
+    if collection_filter:
+        products = products.filter(collection__title=collection_filter)
     # Сортировка
     if sort_by == 'price_low':
         products = products.order_by('price')
@@ -62,11 +70,13 @@ def shop(request):
     brands = Brand.objects.all()
     colors = ColorAd.objects.all()
     sizes = SizeAd.objects.all()
+    prices = Price.objects.all()
+    collections = Collection.objects.all()
 
      # Настройка пагинации
     paginator = Paginator(products, 20)  # Показывать 10 продуктов на странице
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    products = paginator.get_page(page_number)
 
 #Contacts ----------------------------------------------------------
     if request.method == 'POST':
