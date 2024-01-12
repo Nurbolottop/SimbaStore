@@ -790,7 +790,7 @@
                   <div class="circle delay4"></div>
                 </div>
                 <div class="cart-product-slider-slide">
-                  {% for products in product.product_image_index.all %}
+                  {% for products in products_id.product_image_index.all %}
                   <div class="cart-product-slide">
                     <img src="{{products.image.url}}" alt="" />
                   </div>
@@ -799,7 +799,7 @@
                 </div>
               </div>
               <div class="cart-slider-thumb wow slideInLeft">
-                {% for products in product.product_image_index.all %}
+                {% for products in products_id.product_image_index.all %}
                 <div class="cart-product-thumb-slide">
                   <img src="{{products.image.url}}" alt="" />
                 </div>
@@ -810,16 +810,16 @@
             <div class="cart-product-info-v2">
               <div class="cart-product-content">
                 <div class="cart-product-info wow slideInRight">
-                  <h2>{{product.title}}</h2>
+                  <h2>{{products_id.title}}</h2>
                   <p>
-                    {{product.descriptions|safe}}
+                    {{products_id.descriptions|safe}}
                   </p>
                   <div class="price">
-                  {% if not product.price_sale %}
-                    <span>{{product.price}} сомов</span>
+                  {% if not products_id.price_sale %}
+                    <span>{{products_id.price}} сомов</span>
                   {% else %}
-                    <span>{{product.price_sale}} сомов</span>
-                    <del>{{product.price}} сомов </span>
+                    <span>{{products_id.price_sale}} сомов</span>
+                    <del>{{products_id.price}} сомов </span>
                   {% endif %}
                   </div>
                   <div class="cart-items-add">
@@ -871,7 +871,7 @@
                         <div class="input-field">
                             <label>Выберите цвет</label>
                             <select name="color" required>
-                                {% for product in product.product_color_index.all%}
+                                {% for product in products_id.product_color_index.all%}
 
                                 <option value="{{product.title.title}}">{{product.title.title}}</option>
                                 {% endfor %}
@@ -880,7 +880,7 @@
                         <div class="input-field">
                             <label>Выберите размер</label>
                             <select name="size" required>
-                                {% for product in product.product_size_index.all%}
+                                {% for product in products_id.product_size_index.all%}
                                 <option value="{{product.title.al}}">{{product.title.al}}</option>
                                 {% endfor %}
                             </select>

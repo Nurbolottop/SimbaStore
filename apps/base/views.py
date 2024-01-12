@@ -96,7 +96,7 @@ def blog(request):
     context = {'end_time': end_time.isoformat()}
 
 #Secondary----------------------------------------------------------
-
+    product = Product.objects.all().order_by("?")[:10]
 #Contacts ----------------------------------------------------------
     if request.method == 'POST':
         if "newslater" in request.POST:
