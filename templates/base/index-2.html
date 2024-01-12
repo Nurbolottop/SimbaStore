@@ -59,7 +59,7 @@
             </div>
             <div class="size-colors">
               <div class="product-size">
-                <span>Size</span>
+                <span>Размер</span>
                 <a href="#" title="">size guide</a>
                 <ul class="size-list">
                   <li class="active">l</li>
@@ -143,7 +143,7 @@
                 <span>{{slide.subtitle}}</span>
                 <h1>{{slide.title}}</h1>
                 <p>{{slide.descriptions}}</p>
-                <a href="shop-single.html" title="" class="theme-btn">Купить сейчас</a>
+                <a href="{% url 'shop' %}" title="" class="theme-btn">Магазин</a>
                 </div>
             </div>
             {% endfor %}
@@ -162,7 +162,7 @@
             <p>
               {{lookbook.descriptions|safe}}
             </p>
-            <a href="about.html" title="" class="theme-btn">Узнать больше</a>
+            <a href="{% url 'about' %}" title="" class="theme-btn">Узнать больше</a>
           </div>
         </div>
       </section>
@@ -179,7 +179,7 @@
               </div>
               {% endfor %}
             </div>
-            <h1 class="pb-text wow slideInUp">Образец</h1>
+            <h1 class="pb-text wow slideInUp">Образцы</h1>
           </div>
         </div>
       </section>
@@ -218,7 +218,7 @@
                             <img src="{{category.image.url}}" alt="" />
                           </div>
                           <h3>
-                            <a href="shop-single.html" title="">{{category.title}}</a>
+                            <a href="{% url 'shop' %}" title="">{{category.title}}</a>
                           </h3>
                         </div>
                       </div>
@@ -229,7 +229,7 @@
                             <img src="{{category.image.url}}" alt="" />
                           </div>
                           <h3>
-                            <a href="shop-single.html" title="">{{category.title}}</a>
+                            <a href="{% url 'shop' %}" title="">{{category.title}}</a>
                           </h3>
                         </div>
                       </div>
@@ -550,121 +550,7 @@
         </div>
       </section>
 
-      <section class="product-view-section">
-        <div class="container-fluid">
-          <div class="product-view-banner">
-            <h2>Sports</h2>
-            <h2 class="v2">Glance</h2>
-            <div class="product-view-slider">
-              <div class="product-view-slide">
-                <div class="product-card">
-                  <span>Deodorant</span>
-                  <h3>
-                    <a href="shop-single.html" title="">Women's Perfume</a>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Etiam semper lacus id libero porta blandit.
-                  </p>
-                  <div class="price">
-                    <span>$25.45</span>
-                    <del>$35.00</del>
-                  </div>
-                  <div class="cart-items-add">
-                    <div class="quantity">
-                      <button class="plus-btn" type="button" name="button">
-                        <i class="fa fa-plus"></i>
-                      </button>
-                      <input type="text" name="name" value="1" />
-                      <button class="minus-btn" type="button" name="button">
-                        <i class="fa fa-minus"></i>
-                      </button>
-                    </div>
-                    <a href="shop-single.html" title="" class="theme-btn"
-                      >buy now</a
-                    >
-                  </div>
-                </div>
-                <div class="product-view-image">
-                  <img src="{% static 'images/resource/product-img1.png' %}" alt="" />
-                </div>
-              </div>
-              <!--product-view-slides-->
-              <div class="product-view-slide">
-                <div class="product-card">
-                  <span>Deodorant</span>
-                  <h3>
-                    <a href="shop-single.html" title="">Women's Perfume</a>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Etiam semper lacus id libero porta blandit.
-                  </p>
-                  <div class="price">
-                    <span>$25.45</span>
-                    <del>$35.00</del>
-                  </div>
-                  <div class="cart-items-add">
-                    <div class="quantity">
-                      <button class="plus-btn" type="button" name="button">
-                        <i class="fa fa-plus"></i>
-                      </button>
-                      <input type="text" name="name" value="1" />
-                      <button class="minus-btn" type="button" name="button">
-                        <i class="fa fa-minus"></i>
-                      </button>
-                    </div>
-                    <a href="shop-single.html" title="" class="theme-btn"
-                      >buy now</a
-                    >
-                  </div>
-                </div>
-                <div class="product-view-image">
-                  <img src="{% static 'images/resource/product-img3.png' %}" alt="" />
-                </div>
-              </div>
-              <!--product-view-slides-->
-              <div class="product-view-slide">
-                <div class="product-card">
-                  <span>Deodorant</span>
-                  <h3>
-                    <a href="shop-single.html" title="">Women's Perfume</a>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Etiam semper lacus id libero porta blandit.
-                  </p>
-                  <div class="price">
-                    <span>$25.45</span>
-                    <del>$35.00</del>
-                  </div>
-                  <div class="cart-items-add">
-                    <div class="quantity">
-                      <button class="plus-btn" type="button" name="button">
-                        <i class="fa fa-plus"></i>
-                      </button>
-                      <input type="text" name="name" value="1" />
-                      <button class="minus-btn" type="button" name="button">
-                        <i class="fa fa-minus"></i>
-                      </button>
-                    </div>
-                    <a href="shop-single.html" title="" class="theme-btn"
-                      >buy now</a
-                    >
-                  </div>
-                </div>
-                <div class="product-view-image">
-                  <img src="{% static 'images/resource/product-img1.png' %}" alt="" />
-                </div>
-              </div>
-              <!--product-view-slides-->
-            </div>
-            <!--product-view-slider-->
-          </div>
-        </div>
-      </section>
-      <!--product-view-section-->
-
+     
       <section class="marquee-section v2">
         <div
           class="marquee"
@@ -679,25 +565,23 @@
       <section class="collection-section v2">
         <div class="container-fluid">
           <div class="sec-title space-v2 wow slideInUp">
-            <h2>new collection</h2>
+            <h2>НОВАЯ КОЛЛЕКЦИЯ</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus
-              leo sit amet lorem egestas iaculis. Donec nibh enim, pharetra vel
-              turpis
+              Откройте для себя последние тренды с нашей Новой Коллекцией. Каждый образ - это сочетание стиля и современности, созданное для того, чтобы вы выделялись. Наша кураторская подборка включает в себя все, от классических кроев до бескомпромиссных новинок сезона. 
             </p>
           </div>
           <div class="product-categories v2 without-slide row">
+            {% for product in product %}
             <div class="col-lg-2">
               <div class="product-cat">
                 <div class="product-img">
-                  <img src="{% static 'images/resource/ct1.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
+                  <img src="{{product.image.url}}" alt="" />
+                  <span class="pro-category">{{product.category}}</span>
                 </div>
                 <div class="product-hover-info">
                   <div class="product-hover-head">
                     <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
+                      <li>{{product.category_twoo}}</li>
                     </ul>
                     <a href="#" title="" class="fvrt-product"
                       ><img src="{% static 'images/icons/heart.svg' %}" alt=""
@@ -705,11 +589,15 @@
                   </div>
                   <div class="product-info-hover">
                     <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
+                      <a href="shop-single.html" title="">{{product.title}}</a>
                     </h3>
-                    <span>Loues Vuitto</span>
+                    <span>{{product.brand}}</span>
                     <div class="pricee">
-                      <span>$25.45</span>
+                      {% if product.price_sale %}
+                      <span>{{product.price_sale}} сомов</span>
+                      {% else %}
+                      <span>{{product.price}} сомов</span>
+                      {% endif %}
                     </div>
                     <ul class="pro-colors">
                       <li class="clr1"></li>
@@ -718,515 +606,32 @@
                       <li class="clr4"></li>
                     </ul>
                     <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
+                      {% for product in product.product_size.all %}
+                      <li>{{product.title.al}}</li>
+                      {% endfor %}
                     </ul>
                     <ul class="pro-buttons">
                       <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
+                        <a href="{% url 'shop_detail' product.id %}" title="" class="theme-btn">Посмотреть</a>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <!--product-hover-info-->
                 <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
+                  <h3><a href="shop-single.html" title="">{{product.title}}</a></h3>
+
+                  {% if product.price_sale %}
+                  <span class="product-price"
+                    >{{product.price_sale}} cомов</span
+                  >
+                  {% else %}
+                  <span class="product-price">{{product.price}} cомов</span>
+                  {% endif %}
                 </div>
               </div>
             </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct2.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/col1.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct4.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct5.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct6.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct7.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct8.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct9.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <div class="product-cat">
-                <div class="product-img">
-                  <img src="{% static 'images/resource/ct10.jpg' %}" alt="" />
-                  <span class="pro-category">new</span>
-                </div>
-                <div class="product-hover-info">
-                  <div class="product-hover-head">
-                    <ul class="pt-links">
-                      <li>new</li>
-                      <li>sales</li>
-                    </ul>
-                    <a href="#" title="" class="fvrt-product"
-                      ><img src="{% static 'images/icons/heart.svg' %}" alt=""
-                    /></a>
-                  </div>
-                  <div class="product-info-hover">
-                    <h3>
-                      <a href="shop-single.html" title="">Casual Jacket</a>
-                    </h3>
-                    <span>Loues Vuitto</span>
-                    <div class="pricee">
-                      <span>$25.45</span>
-                    </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
-                    </ul>
-                    <ul class="variations">
-                      <li>s</li>
-                      <li>m</li>
-                      <li>l</li>
-                    </ul>
-                    <ul class="pro-buttons">
-                      <li>
-                        <a href="#" title="" class="theme-btn">quick add</a>
-                      </li>
-                      <li>
-                        <a href="#" title="" class="theme-btn quick-view-btn"
-                          >quick view</a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!--product-hover-info-->
-                <div class="product-info">
-                  <h3><a href="shop-single.html" title="">Casual Jacket</a></h3>
-                  <span class="product-price">$25.45</span>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </section>
@@ -1372,6 +777,7 @@
           <h2>Стиль и качество для вас в каждом штрихе</h2>
         </div>
       </section>
+      {% if products_id %}
       <section class="cart-section-v2">
         <div class="container-fluid">
           <div class="card-product-content-v2">
@@ -1384,43 +790,37 @@
                   <div class="circle delay4"></div>
                 </div>
                 <div class="cart-product-slider-slide">
+                  {% for products in product.product_image_index.all %}
                   <div class="cart-product-slide">
-                    <img src="{% static 'images/resource/product1.png' %}" alt="" />
+                    <img src="{{products.image.url}}" alt="" />
                   </div>
-                  <div class="cart-product-slide">
-                    <img src="{% static 'images/resource/product2.png' %}" alt="" />
-                  </div>
-                  <div class="cart-product-slide">
-                    <img src="{% static 'images/resource/product3.png' %}" alt="" />
-                  </div>
+                  {% endfor %}
+                  
                 </div>
               </div>
               <div class="cart-slider-thumb wow slideInLeft">
+                {% for products in product.product_image_index.all %}
                 <div class="cart-product-thumb-slide">
-                  <img src="{% static 'images/resource/product2.jpg' %}" alt="" />
+                  <img src="{{products.image.url}}" alt="" />
                 </div>
-                <div class="cart-product-thumb-slide">
-                  <img src="{% static 'images/resource/product-2.jpg' %}" alt="" />
-                </div>
-                <div class="cart-product-thumb-slide">
-                  <img src="{% static 'images/resource/product-3.jpg' %}" alt="" />
-                </div>
+                {% endfor %}
               </div>
             </div>
             <!--card-product-thumb-slider-->
             <div class="cart-product-info-v2">
               <div class="cart-product-content">
                 <div class="cart-product-info wow slideInRight">
-                  <h2>Studiofit Light Grey Hooded Jacket</h2>
+                  <h2>{{product.title}}</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                    luctus leo sit amet lorem egestas iaculis. Donec nibh enim,
-                    pharetra vel turpis non, vulputate luctus ex. Phasellus
-                    pharetra ut dolor ac rutrum.
+                    {{product.descriptions|safe}}
                   </p>
                   <div class="price">
-                    <span>$25.45</span>
-                    <del>$35.00</del>
+                  {% if not product.price_sale %}
+                    <span>{{product.price}} сомов</span>
+                  {% else %}
+                    <span>{{product.price_sale}} сомов</span>
+                    <del>{{product.price}} сомов </span>
+                  {% endif %}
                   </div>
                   <div class="cart-items-add">
                     <div class="quantity">
@@ -1432,8 +832,8 @@
                         <i class="fa fa-minus"></i>
                       </button>
                     </div>
-                    <a href="shop-single.html" title="" class="theme-btn"
-                      >buy now</a
+                    <a href="#" title="" class="size-popup-show theme-btn"
+                      >Оставить заявку</a
                     >
                   </div>
                 </div>
@@ -1443,6 +843,67 @@
           <!--card-product-content-v2-->
         </div>
       </section>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="size-popup">
+        <a href="#" title="" class="close-popup">
+            <img src="{% static 'images/close.png' %}" alt="" />
+        </a>
+        <style>
+          .input-field input,
+          .input-field select,
+          .input-field textarea {
+            width: 100%; /* Ширина поля */
+            padding: 10px; /* Внутренние отступы */
+            border: 1px solid #ccc; /* Граница */
+            border-radius: 4px; /* Скругление углов */
+            box-sizing: border-box; /* Box-sizing для корректного расчета ширины */
+          }
+        </style>
+        <div class="lg-popup2">
+            <div class="lg-content">
+                <div class="lg-content-inner">
+                    <h3>Оставьте заявку</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="input-field">
+                            <label>Выберите цвет</label>
+                            <select name="color" required>
+                                {% for product in product.product_color_index.all%}
+
+                                <option value="{{product.title.title}}">{{product.title.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Выберите размер</label>
+                            <select name="size" required>
+                                {% for product in product.product_size_index.all%}
+                                <option value="{{product.title.al}}">{{product.title.al}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Введите ФИО</label>
+                            <input type="text" name="username" placeholder="Эркинбаев Нурболот Ильязбекович" required />
+                        </div>
+                        <div class="input-field">
+                            <label>Телефонный номер</label>
+                            <input type="tel" name="phone" placeholder="+996 555 123456" required />
+                        </div>
+                        <div class="input-field">
+                            <label>Электронная почта</label>
+                            <input type="email" name="email" placeholder="example@mail.com" required />
+                        </div>
+                        <button type="submit" name="submit_application" class="theme-btn v2 w-100">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+      {% endif %}
       <!--cart-section-->
 
       <section class="latest-news-section">
@@ -1479,7 +940,7 @@
           </div>
           <!--blog-posts-->
           <div class="full-button text-center wow slideInUp">
-            <a href="#" title="" class="theme-btn">view all</a>
+            <a href="{% url 'blog' %}" title="" class="theme-btn">Посмотреть все</a>
           </div>
         </div>
       </section>

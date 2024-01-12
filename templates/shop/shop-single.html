@@ -13,7 +13,7 @@
     <section class="page-banner">
         <div class="container">
             <div class="page-banner-content text-center">
-                <h2 class="page-title">{{product.title}}</h2>
+                <h2 class="page-title">{{products.title}}</h2>
             </div>
         </div>
     </section><!--page-banner-->
@@ -43,33 +43,23 @@
                     </div>
                     <div class="size-colors">
                         <div class="product-size">
-                            <span>Size</span>
+                            <span>Размер</span>
                             <ul class="size-list">
-                                <li class="active">l</li>
-                                <li>m</li>
-                                <li>s</li>
-                                <li>xl</li>
-                                <li>xll</li>
+                                {% for product in products.product_size.all%}
+                                <li>{{product.title.al}}</li>
+                                {% endfor %}
                             </ul>
                         </div>
-                        <div class="product-colors">
-                            <span>color</span>
-                            <ul class="colors-list">
-                                <li class="active">
-                                    <span class="clr1"></span>
-                                </li>
-                                <li>
-                                    <span class="clr2"></span>
-                                </li>
-                                <li>
-                                    <span class="clr3"></span>
-                                </li>
-                                <li>
-                                    <span class="clr4"></span>
-                                </li>
-                                <li>
-                                    <span class="clr5"></span>
-                                </li>
+                        <br>
+                     
+                    </div>
+                    <div class="size-colors">
+                        <div class="product-size">
+                            <span>Цвет</span>
+                            <ul class="size-list">
+                                {% for product in products.product_color.all%}
+                                <li>{{product.title.title}}</li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -88,7 +78,17 @@
             </div><!--shop-product-singele-->
         </div>
     </section><!--shop-single-section-->
-
+    <style>
+        .input-field input,
+        .input-field select,
+        .input-field textarea {
+          width: 100%; /* Ширина поля */
+          padding: 10px; /* Внутренние отступы */
+          border: 1px solid #ccc; /* Граница */
+          border-radius: 4px; /* Скругление углов */
+          box-sizing: border-box; /* Box-sizing для корректного расчета ширины */
+        }
+    </style>
     <div class="size-popup">
         <a href="#" title="" class="close-popup">
             <img src="{% static 'images/close.png' %}" alt="" />
@@ -96,32 +96,45 @@
         <div class="lg-popup2">
             <div class="lg-content">
                 <div class="lg-content-inner">
-                    <h3>Оставьте заявку </h3>
-                    <form method = "POST">
+                    <h3>Оставьте заявку</h3>
+                    <form method="POST">
                         {% csrf_token %}
                         <div class="input-field">
-                            <label>Введите ФИО</label>
-                            <input type="text" name="title" placeholder="Эркинбаев Нурболот Ильязбекович" />
+                            <label>Выберите цвет</label>
+                            <select name="color" required>
+                                {% for product in products.product_color.all%}
+
+                                <option value="{{product.title.title}}">{{product.title.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Выберите размер</label>
+                            <select name="size" required>
+                                {% for product in products.product_size.all%}
+                                <option value="{{product.title.al}}">{{product.title.al}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="input-field">
                             <label>Введите ФИО</label>
-                            <input type="text" name="title" placeholder="Эркинбаев Нурболот Ильязбекович" />
+                            <input type="text" name="username" placeholder="Эркинбаев Нурболот Ильязбекович" required />
                         </div>
                         <div class="input-field">
-                            <label>Введите ФИО</label>
-                            <input type="text" name="title" placeholder="Эркинбаев Нурболот Ильязбекович" />
+                            <label>Телефонный номер</label>
+                            <input type="tel" name="phone" placeholder="+996 555 123456" required />
                         </div>
                         <div class="input-field">
-                            <label>Введите отзыв</label>
-                            <input type="message" name="message" placeholder="Ооочень круто" />
+                            <label>Электронная почта</label>
+                            <input type="email" name="email" placeholder="example@mail.com" required />
                         </div>
-                        
-                        <button type="submit"  name = "reviews" class="theme-btn v2 w-100">Отправить отзыв</button>
+                        <button type="submit" name="submit_application" class="theme-btn v2 w-100">Отправить заявку</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
 <br>
 <br>
     <section class="prod-section">
@@ -169,7 +182,7 @@
             <h2>Стиль и качество для вас в каждом штрихе</h2>
         </div>
     </section>
-
+    
     {% include "include/footer.html" %}
 
     

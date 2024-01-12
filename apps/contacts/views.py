@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 
 from apps.contacts import models
 from apps.base.models import Settings,Sale
-from apps.products.models import Category
+from apps.products.models import Category,Collection
 
 from apps.telegram_bot.views import get_text
 # Create your views here.
@@ -14,6 +14,7 @@ def reviews(request):
 #Base----------------------------------------------------------
     settings = Settings.objects.latest("id")
     category = Category.objects.latest("id")
+    collection = Collection.objects.all()
 
 #Secondary----------------------------------------------------------
     
@@ -49,6 +50,8 @@ def reviews(request):
 
 
 def contact(request):
+    collection = Collection.objects.all()
+
 #Base----------------------------------------------------------
     settings = Settings.objects.latest("id")
     category = Category.objects.latest("id")

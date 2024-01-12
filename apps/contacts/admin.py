@@ -33,7 +33,15 @@ class ContactFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class BuyFilterAdmin(admin.ModelAdmin):
+    list_filter = ('username', )
+    list_display = ('username', 'product')
+    search_fields = ('username', 'product')
+
+################################################################################################################################################################################
+
 admin.site.register(models.Review,ReviewFilterAdmin)
 admin.site.register(models.Newsletter, NewsletterFilterAdmin)
 admin.site.register(models.Subscriber, SubscriberFilterAdmin)
 admin.site.register(models.Contact, ContactFilterAdmin)
+admin.site.register(models.Buy, BuyFilterAdmin)

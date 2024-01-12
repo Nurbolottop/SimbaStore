@@ -6,11 +6,12 @@ from datetime import datetime
 from apps.base import models
 from apps.contacts.models import Review,Subscriber
 from apps.secondary.models import Faqs,Team
-from apps.products.models import Category
+from apps.products.models import Category,Collection
 from apps.telegram_bot.views import get_text
 
 # Create your views here.
 def about(request):
+    collection = Collection.objects.all()
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
     category = Category.objects.latest("id")
@@ -55,6 +56,7 @@ def about(request):
 ################################################################################################################################################################################
 
 def faqs(request):
+    collection = Collection.objects.all()
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
     category = Category.objects.latest("id")

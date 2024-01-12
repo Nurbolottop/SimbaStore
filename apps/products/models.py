@@ -190,11 +190,11 @@ class ColorAd(models.Model):
         verbose_name_plural = "6) Добавить Цвета"
 
 class Color(models.Model):
-    settings = models.ForeignKey(ColorAd,
+    settings = models.ForeignKey(Product,
         related_name = "product_color",
         on_delete = models.CASCADE
     )
-    title = models.ForeignKey(Product,
+    title = models.ForeignKey(ColorAd,
         related_name = "product_color_ad",
         on_delete = models.CASCADE
     )
@@ -205,6 +205,7 @@ class Color(models.Model):
     class Meta:
         verbose_name = "Добавить Цвет"
         verbose_name_plural = "Добавить Цвета"
+
 ################################################################################################################################################################################
 
 class SizeAd(models.Model):
@@ -239,3 +240,110 @@ class Size(models.Model):
     class Meta:
         verbose_name = "Добавить Размер"
         verbose_name_plural = "Добавить Размеры"
+
+################################################################################################################################################################################
+
+class IndexProduct(models.Model):
+    title = models.CharField(
+        max_length = 255,
+        verbose_name = "Введите название"
+    )
+    descriptions = RichTextField(
+        verbose_name="Информационный текст",
+    )
+    price = models.FloatField(
+        verbose_name = "Цена"
+    )
+    price_sale = models.FloatField(
+        blank = True,null = True,
+        verbose_name = "Цена со скидкой(если есть скидка)"
+    )
+    category  = models.ForeignKey(CategoryAdd, 
+        related_name = "product_category_index",
+        on_delete = models.CASCADE,
+        verbose_name = "Выберите категорию в которую входит данный продукт"
+    )
+    category_twoo  = models.ForeignKey(TwoCategory, 
+        related_name = "product_category_twoo_index",
+        on_delete = models.CASCADE,
+        verbose_name = "Выберите вторичную категорию в которую входит данный продукт"
+    )
+    brand  = models.ForeignKey(Brand, 
+        related_name = "product_brand_index",
+        on_delete = models.CASCADE,
+        verbose_name = "Выберите бренд в которую входит данный продукт"
+
+    )
+    collection  = models.ForeignKey(Collection, 
+        related_name = "product_collection_index",
+        on_delete = models.CASCADE,
+        verbose_name = "Выберите коллекцию в которую входит данный продукт"
+
+    )
+    prices  = models.ForeignKey(Price, 
+        related_name = "product_prices_index",
+        on_delete = models.CASCADE,
+        verbose_name = "Выберите цену в которую входит данный продукт"
+
+    )
+
+    def __str__(self):
+        return f"{self.title}  - {self.price}"
+    
+    class Meta:
+        verbose_name = "9) Добавить Одежду для главной страницы"
+        verbose_name_plural = "9) Добавить Одежду для главной страницы "
+
+class IndexImage(models.Model):
+    settings = models.ForeignKey(IndexProduct,
+        related_name = "product_image_index",
+        on_delete = models.CASCADE
+    )
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='sale/',
+        verbose_name="Фотографии одежды",
+        blank = False, null = False
+    )
+    class Meta:
+        verbose_name = "Добавить Фотографию"
+        verbose_name_plural = "Добавить Фотографию"
+
+
+class ColorIndex(models.Model):
+    settings = models.ForeignKey(IndexProduct,
+        related_name = "product_color_index",
+        on_delete = models.CASCADE
+    )
+    title = models.ForeignKey(ColorAd,
+        related_name = "product_color_ad_index",
+        on_delete = models.CASCADE
+    )
+
+    def __str__(self):
+        return f"{self.title} "
+    
+    class Meta:
+        verbose_name = "Добавить Цвет"
+        verbose_name_plural = "Добавить Цвета"
+
+################################################################################################################################################################################
+
+class SizeIndex(models.Model):
+    settings = models.ForeignKey(IndexProduct,
+        related_name = "product_size_index",
+        on_delete = models.CASCADE
+    )
+    title = models.ForeignKey(SizeAd,
+        related_name = "product_size_ad_index",
+        on_delete = models.CASCADE
+    )
+    def __str__(self):
+        return f"{self.title} "
+    
+    class Meta:
+        verbose_name = "Добавить Размер"
+        verbose_name_plural = "Добавить Размеры"
+
+################################################################################################################################################################################

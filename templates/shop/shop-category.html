@@ -59,56 +59,6 @@
               <li>
                 <div class="drop-menu">
                   <div class="select">
-                    <span>Размеры</span>
-                    <div class="check-icon">
-                      <i class="fa fa-angle-down"></i>
-                    </div>
-                  </div>
-                  <ul class="dropeddown">
-                    {% for sizes in sizes %}
-                    <li>
-                      <label>
-                        <input
-                          type="checkbox"
-                          name="sizes"
-                          value="{{ sizes.al }}"
-                          onchange="document.getElementById('filter-form').submit();"
-                        />
-                        {{ sizes.al }}
-                      </label>
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <div class="drop-menu">
-                  <div class="select">
-                    <span>Цвета</span>
-                    <div class="check-icon">
-                      <i class="fa fa-angle-down"></i>
-                    </div>
-                  </div>
-                  <ul class="dropeddown">
-                    {% for color in colors %}
-                    <li>
-                      <label>
-                        <input
-                          type="checkbox"
-                          name="colors"
-                          value="{{ color.title }}"
-                          onchange="document.getElementById('filter-form').submit();"
-                        />
-                        {{ color.title }}
-                      </label>
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <div class="drop-menu">
-                  <div class="select">
                     <span>Цена</span>
                     <div class="check-icon">
                       <i class="fa fa-angle-down"></i>
@@ -163,7 +113,7 @@
         <div class="custom-tab-pane current" id="tab-1">
           <div class="collection-section bb-0">
             <div class="product-categories v2">
-              {% for product in products %}
+            {% for product in products %}
               <div class="product-cat">
                 <div class="product-img">
                   <img src="{{product.image.url}}" alt="" />
@@ -189,15 +139,14 @@
                       <span>{{product.price}} сомов</span>
                       {% endif %}
                     </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
+                    <ul class="size-list">
+                      {% for product in product.product_color.all%}
+                      <li>{{product.title.title}}</li>
+                      {% endfor %}
                     </ul>
                     <ul class="variations">
                       {% for product in product.product_size.all%}
-                      <li>{{product.al}}</li>
+                      <li>{{product.title.al}}</li>
                       {% endfor %}
                     </ul>
                     <ul class="pro-buttons">
@@ -228,9 +177,10 @@
                   {% endif %}
                 </div>
               </div>
-              {% endfor %}
+            {% endfor %}
             </div>
           </div>
+          <br>
           <ul class="pagination">
             {% if products.has_previous %}
             <li class="page-item">
@@ -266,7 +216,7 @@
         <div class="custom-tab-pane grid-view" id="tab-2">
           <div class="collection-section bb-0">
             <div class="product-categories v2">
-              {% for product in products %}
+            {% for product in products %}
               <div class="product-cat">
                 <div class="product-img">
                   <img src="{{product.image.url}}" alt="" />
@@ -292,15 +242,14 @@
                       <span>{{product.price}} сомов</span>
                       {% endif %}
                     </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
+                    <ul class="size-list">
+                      {% for product in product.product_color.all%}
+                      <li>{{product.title.title}}</li>
+                      {% endfor %}
                     </ul>
                     <ul class="variations">
                       {% for product in product.product_size.all%}
-                      <li>{{product.al}}</li>
+                      <li>{{product.title.al}}</li>
                       {% endfor %}
                     </ul>
                     <ul class="pro-buttons">
@@ -331,9 +280,10 @@
                   {% endif %}
                 </div>
               </div>
-              {% endfor %}
+            {% endfor %}
             </div>
           </div>
+          <br>
           <ul class="pagination">
             {% if products.has_previous %}
             <li class="page-item">
@@ -369,7 +319,7 @@
         <div class="custom-tab-pane" id="tab-3">
           <div class="collection-section bb-0">
             <div class="product-categories v2">
-              {% for product in products %}
+            {% for product in products %}
               <div class="product-cat">
                 <div class="product-img">
                   <img src="{{product.image.url}}" alt="" />
@@ -395,15 +345,14 @@
                       <span>{{product.price}} сомов</span>
                       {% endif %}
                     </div>
-                    <ul class="pro-colors">
-                      <li class="clr1"></li>
-                      <li class="clr2"></li>
-                      <li class="clr3"></li>
-                      <li class="clr4"></li>
+                    <ul class="size-list">
+                      {% for product in product.product_color.all%}
+                      <li>{{product.title.title}}</li>
+                      {% endfor %}
                     </ul>
                     <ul class="variations">
                       {% for product in product.product_size.all%}
-                      <li>{{product.al}}</li>
+                      <li>{{product.title.al}}</li>
                       {% endfor %}
                     </ul>
                     <ul class="pro-buttons">
@@ -434,9 +383,10 @@
                   {% endif %}
                 </div>
               </div>
-              {% endfor %}
+            {% endfor %}
             </div>
           </div>
+          <br>
           <ul class="pagination">
             {% if products.has_previous %}
             <li class="page-item">
@@ -473,125 +423,9 @@
     </div>
   </section>
 
-  <section class="product-view-section">
-    <div class="container-fluid">
-      <div class="product-view-banner">
-        <h2>Sports</h2>
-        <h2 class="v2">Glance</h2>
-        <div class="product-view-slider">
-          <div class="product-view-slide">
-            <div class="product-card">
-              <span>Deodorant</span>
-              <h3><a href="shop-single.html" title="">Women's Perfume</a></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                semper lacus id libero porta blandit.
-              </p>
-              <div class="price">
-                <span>$25.45</span>
-                <del>$35.00</del>
-              </div>
-              <div class="cart-items-add">
-                <div class="quantity">
-                  <button class="plus-btn" type="button" name="button">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                  <input type="text" name="name" value="1" />
-                  <button class="minus-btn" type="button" name="button">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <a href="shop-single.html" title="" class="theme-btn"
-                  >buy now</a
-                >
-              </div>
-            </div>
-            <div class="product-view-image">
-              <img
-                src="{% static 'images/resource/product-img1.png' %}"
-                alt=""
-              />
-            </div>
-          </div>
-          <!--product-view-slides-->
-          <div class="product-view-slide">
-            <div class="product-card">
-              <span>Deodorant</span>
-              <h3><a href="shop-single.html" title="">Women's Perfume</a></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                semper lacus id libero porta blandit.
-              </p>
-              <div class="price">
-                <span>$25.45</span>
-                <del>$35.00</del>
-              </div>
-              <div class="cart-items-add">
-                <div class="quantity">
-                  <button class="plus-btn" type="button" name="button">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                  <input type="text" name="name" value="1" />
-                  <button class="minus-btn" type="button" name="button">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <a href="shop-single.html" title="" class="theme-btn"
-                  >buy now</a
-                >
-              </div>
-            </div>
-            <div class="product-view-image">
-              <img
-                src="{% static 'images/resource/product-img1.png' %}"
-                alt=""
-              />
-            </div>
-          </div>
-          <!--product-view-slides-->
-          <div class="product-view-slide">
-            <div class="product-card">
-              <span>Deodorant</span>
-              <h3><a href="shop-single.html" title="">Women's Perfume</a></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                semper lacus id libero porta blandit.
-              </p>
-              <div class="price">
-                <span>$25.45</span>
-                <del>$35.00</del>
-              </div>
-              <div class="cart-items-add">
-                <div class="quantity">
-                  <button class="plus-btn" type="button" name="button">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                  <input type="text" name="name" value="1" />
-                  <button class="minus-btn" type="button" name="button">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <a href="shop-single.html" title="" class="theme-btn"
-                  >buy now</a
-                >
-              </div>
-            </div>
-            <div class="product-view-image">
-              <img
-                src="{% static 'images/resource/product-img1.png' %}"
-                alt=""
-              />
-            </div>
-          </div>
-          <!--product-view-slides-->
-        </div>
-        <!--product-view-slider-->
-      </div>
-    </div>
-  </section>
   <!--product-view-section-->
 
-  <section class="prod-section">
+  {% comment %} <section class="prod-section">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -626,7 +460,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> {% endcomment %}
 
   <section class="marquee-section abt border-top-0">
     <div
@@ -635,7 +469,7 @@
       data-gap="10"
       data-duplicated="true"
     >
-      <h2>The best fashion store can deliver</h2>
+      <h2>Стиль и качество для вас в каждом штрихе</h2>
     </div>
     <div
       class="marquee2"
@@ -643,7 +477,7 @@
       data-gap="37"
       data-duplicated="true"
     >
-      <h2>The best fashion store can deliver</h2>
+      <h2>Стиль и качество для вас в каждом штрихе</h2>
     </div>
   </section>
 

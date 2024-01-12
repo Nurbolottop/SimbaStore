@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 ################################################################################################################################################################################
 
 from apps.base import models
-from apps.contacts.models import Review,Subscriber
+from apps.contacts.models import Review,Subscriber,Buy
 from apps.secondary.models import Team
 from apps.products.models import Category,Product,Brand,ColorAd,SizeAd,Price,Collection
 from apps.telegram_bot.views import get_text
@@ -17,6 +17,7 @@ def shop(request):
     deviz = models.Devis.objects.latest("id")
     sale = models.Sale.objects.all()
     blog = models.Blog.objects.all().order_by("?")[:3]
+    collection = Collection.objects.all()
 
 
     #################################################
@@ -44,11 +45,6 @@ def shop(request):
     # Применение фильтров
     if brand_filter:
         products = products.filter(brand__title=brand_filter)
-    if color_filter:
-        # Используйте related_name `product_color_ad` для фильтрации по цвету
-        products = products.filter(product_color_ad__settings__title=color_filter)
-    if size_filter:
-        products = products.filter(sizead__al=size_filter)
     if price_filter:
         try:
             # Преобразуем строку в число для фильтрации
@@ -96,6 +92,8 @@ def shop(request):
 
 
 def shop_detail(request,id):
+    collection = Collection.objects.all()
+
 #Base----------------------------------------------------------
     settings = models.Settings.objects.latest("id")
     category = Category.objects.latest("id")
@@ -129,6 +127,27 @@ def shop_detail(request,id):
                          
 Почта пользователя: {email}
 """)
+        if "submit_application" in request.POST:
+            product = products.title
+            color = request.POST.get("color")
+            size = request.POST.get("size")
+            username = request.POST.get("username")
+            phone = request.POST.get("phone")
+            email = request.POST.get("email")
+            buy = Buy.objects.create(product=product,color=color,size=size,username=username,phone=phone,email=email)
+            get_text(f"""
+                ✅Пользователь оставил заявку на покупку
+                         
+⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+                         
+Название товара: {product}
+Цвет товара: {color}
+Размер товара: {size}
+ФИО клиента: {username}
+Телефонный номер клиента: {phone}
+Почта клиента: {email}
+""")
             return redirect( 'index')
+            
     reviews = Review.objects.all()
     return render(request,'shop/shop-single.html', locals())

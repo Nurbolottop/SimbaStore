@@ -85,6 +85,26 @@ class ProductFilterAdmin(admin.ModelAdmin):
 
 ################################################################################################################################################################################
 
+class IndexImageInline(admin.TabularInline):
+    model = models.IndexImage
+    extra = 1  
+
+class ColorAdIndexInline(admin.TabularInline):
+    model = models.ColorIndex
+    extra = 1  
+
+class SizeAdIndexInline(admin.TabularInline):
+    model = models.SizeIndex
+    extra = 1  
+
+class IndexProductFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', )
+    list_display = ('title', 'descriptions')
+    search_fields = ('title', 'descriptions')
+    inlines = [SizeAdIndexInline,ColorAdIndexInline,IndexImageInline]
+
+################################################################################################################################################################################
+
 admin.site.register(models.Category, CategoryFilterAdmin)
 admin.site.register(models.Product, ProductFilterAdmin)
 admin.site.register(models.Brand, BrandFilterAdmin)
@@ -93,8 +113,6 @@ admin.site.register(models.Price, PriceFilterAdmin)
 admin.site.register(models.TwoCategory, TwoCategoryFilterAdmin)
 admin.site.register(models.SizeAd, SizeAdFilterAdmin)
 admin.site.register(models.ColorAd, ColorAdFilterAdmin)
-
-
-
+admin.site.register(models.IndexProduct, IndexProductFilterAdmin)
 
 ################################################################################################################################################################################

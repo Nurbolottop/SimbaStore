@@ -1,16 +1,19 @@
 {% load static %}
 <footer>
     <div class="main-footer">
-      <h1 class="section-bg-title">Glance</h1>
+      <h1 class="section-bg-title">{{settings.titl}}</h1>
       <div class="container-fluid">
         <div class="footer-widgets">
           <div class="widget widget-links wow fadeInLeft">
-            <h3 class="widget-title">CUSTOMER SERVICE</h3>
+            <h3 class="widget-title">Один клик</h3>
             <ul class="wd-links">
-              <li><a href="#" title="">Contact Support</a></li>
-              <li><a href="#" title="">Track My Order</a></li>
-              <li><a href="#" title="">Returns</a></li>
-              <li><a href="#" title="">Accessibility</a></li>
+              <li><a href="{% url 'index' %}" title="">Главная страница</a></li>
+              <li><a href="{% url 'shop' %}" title="">Магазин</a></li>
+              <li><a href="{% url 'blog' %}" title="">Новости</a></li>
+              <li><a href="{% url 'contact' %}" title="">Наши контакты</a></li>
+              <li><a href="{% url 'about' %}" title="">О нас</a></li>
+              <li><a href="{% url 'faqs' %}" title="">Часто задаваемые вопросы</a></li>
+
             </ul>
           </div>
           <!--widget-links-->
@@ -18,12 +21,11 @@
             class="widget widget-links wow fadeInLeft"
             data-wow-delay="200ms"
           >
-            <h3 class="widget-title">WEBSITE</h3>
+            <h3 class="widget-title">Коллекции</h3>
             <ul class="wd-links">
-              <li><a href="#" title="">Terms of Service</a></li>
-              <li><a href="#" title="">Shipping & Returns</a></li>
-              <li><a href="#" title="">Privacy Policy</a></li>
-              <li><a href="#" title="">Affiliates</a></li>
+              {% for collection in collection %}
+              <li><a href="{% url 'shop' %}" title="">{{collection.title}}</a></li>
+              {% endfor %}
             </ul>
           </div>
           <!--widget-links-->
@@ -31,12 +33,20 @@
             class="widget widget-links wow fadeInLeft"
             data-wow-delay="400ms"
           >
-            <h3 class="widget-title">Glance</h3>
+            <h3 class="widget-title">социальные сети</h3>
             <ul class="wd-links">
-              <li><a href="#" title="">Heritage</a></li>
-              <li><a href="#" title="">Sustainability</a></li>
-              <li><a href="#" title="">Instagram</a></li>
-              <li><a href="#" title="">Contact Us</a></li>
+            {% if settings.whatsapp %}
+              <li><a href="{{settings.whatsapp}}" title="">Whatsapp</a></li>
+            {% endif %}
+            {% if settings.youtube %}
+              <li><a href="{{settings.youtube}}" title="">Youtube</a></li>
+            {% endif %}
+            {% if settings.instagram %}
+              <li><a href="{{settings.instagram}}" title="">Instagram</a></li>
+            {% endif %}
+            {% if settings.facebook %}
+              <li><a href="{{settings.facebook}}" title="">Facebook</a></li>
+            {% endif %}
             </ul>
           </div>
           <!--widget-links-->
@@ -63,7 +73,9 @@
     <div class="bottom-footer">
       <div class="container">
         <div class="copyright wow slideInUp">
-          <p>© 2023 Glance IND - ALL RIGHTS RESERVED</p>
+          
+          <li>© 2023<a href="https://www.instagram.com/codex_kg/" > CodexStudio</a>  -  ВСЕ ПРАВА ЗАЩИЩЕНЫ</li>
+
         </div>
       </div>
     </div>

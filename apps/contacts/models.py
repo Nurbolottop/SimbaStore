@@ -16,8 +16,8 @@ class Review(models.Model):
         return f"{self.title} - {self.message}"
     
     class Meta:
-        verbose_name = "4) Отзыв"
-        verbose_name_plural = "4) Отзывы"
+        verbose_name = "5) Отзыв"
+        verbose_name_plural = "5) Отзывы"
 
 ################################################################################################################################################################################
 
@@ -30,8 +30,8 @@ class Subscriber(models.Model):
         return f"{self.email} - {self.subscribed_at}"
     
     class Meta:
-        verbose_name = "2) Пользователи для рассылки"
-        verbose_name_plural = "2) Пользователи для рассылки"
+        verbose_name = "3) Пользователи для рассылки"
+        verbose_name_plural = "3) Пользователи для рассылки"
 
 class Newsletter(models.Model):
     subject = models.CharField(max_length=200, verbose_name="Заголовок")
@@ -64,8 +64,8 @@ class Newsletter(models.Model):
             email.send(fail_silently=False)
 
     class Meta:
-        verbose_name = "1) Отправить рассылку"
-        verbose_name_plural = "1) Отправить рассылку"
+        verbose_name = "2) Отправить рассылку"
+        verbose_name_plural = "2) Отправить рассылку"
 
 ################################################################################################################################################################################
 
@@ -89,7 +89,38 @@ class Contact(models.Model):
         return f"{self.name}"
     
     class Meta:
-        verbose_name = "3) Запросы на связи"
-        verbose_name_plural = "3) Запросы на связь"
+        verbose_name = "4) Запросы на связи"
+        verbose_name_plural = "4) Запросы на связь"
 
 ################################################################################################################################################################################
+
+class  Buy(models.Model):
+    product = models.CharField(
+        max_length  = 255,
+        verbose_name = "Название продукта"
+    )
+    color = models.CharField(
+        max_length = 255,
+        verbose_name = "Цвет товара"
+    )
+    size = models.CharField(
+        max_length = 255,
+        verbose_name = "Размер товара"
+    )
+    username = models.CharField(
+        max_length = 255,
+        verbose_name = "Имя пользователя"
+    )
+    phone = models.CharField(
+        max_length = 255,
+        verbose_name = "Телефонный номер пользователя"
+    )
+    email = models.EmailField(
+        verbose_name = "Почта пользователя"
+    )
+    def __str__(self):
+        return f"{self.username} - {self.product}"
+    
+    class Meta:
+        verbose_name = "1) Запросы на покупку товара"
+        verbose_name_plural = "1) Запросы на покупку товарат"
